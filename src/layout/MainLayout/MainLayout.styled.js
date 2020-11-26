@@ -6,4 +6,5 @@ export const StyledMainLayout = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${({ theme }) => theme.colors.lightBlack};
 `;
