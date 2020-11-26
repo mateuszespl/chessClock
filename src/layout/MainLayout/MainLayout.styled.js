@@ -6,5 +6,4 @@ export const StyledMainLayout = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://besthqwallpapers.com/img/original/127252/checkerboard-checkered-flag-grunge-backgrounds-chess-board-black-and-white-squares.jpg");
 `;

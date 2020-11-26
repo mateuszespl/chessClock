@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { StyledForm } from "./Form.styled";
 
-export const Form = () => {
-  const [playtime, setPlaytime] = useState(15);
-  const [players, setPlayers] = useState({ firstPlayer: "", secondPlayer: "" });
+export const Form = ({
+  playtime,
+  setPlaytime,
+  players,
+  setPlayers,
+  isSubmitted,
+  setIsSubmitted,
+}) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsSubmitted(!isSubmitted);
+  };
+  const handleChange = (e) => {
+    const { value, id } = e.currentTarget;
+    if (id === "first") {
+      setPlayers({ secondPlayer, firstPlayer: value });
+    } else if (id === "second") {
+      setPlayers({ firstPlayer, secondPlayer: value });
+    }
+  };
   const { firstPlayer, secondPlayer } = players;
   return (
     <StyledForm playtime={playtime}>
-      <form class="form">
-        <div class="form__inputWrapper">
+      <form className="form">
+        <div className="form__inputWrapper">
           <p>Gracz pierwszy</p>
           <input
+            id="first"
             type="text"
             placeholder="Wpisz imię pierwszego gracza."
             value={firstPlayer}
-            onChange={(e) =>
-              setPlayers({ secondPlayer, firstPlayer: e.currentTarget.value })
-            }
+            onChange={handleChange}
           />
         </div>
-        <div class="form__inputWrapper">
+        <div className="form__inputWrapper">
           <p>Gracz drugi</p>
           <input
             type="text"
+            id="second"
             placeholder="Wpisz imię drugiego gracza."
             value={secondPlayer}
             onChange={(e) =>
@@ -31,7 +48,7 @@ export const Form = () => {
             }
           />
         </div>
-        <div class="form__inputWrapper">
+        <div className="form__inputWrapper">
           <p>Ile czasu ma trwać rozgrywka?</p>
           <input
             min="0"
@@ -41,17 +58,13 @@ export const Form = () => {
             onChange={(e) => setPlaytime(e.currentTarget.value)}
             type="range"
           />
-          <div class="form__clock">
+          <div className="form__clock">
             <span></span>
             <p>{playtime}min</p>
           </div>
         </div>
-        <button>Rozpocznij partię</button>
+        <button onClick={handleClick}>Rozpocznij partię</button>
       </form>
-      <img
-        src="https://www.transparentpng.com/thumb/chess/tCQTMR-chess-icon-clipart.png"
-        alt="Chess Icon Clipart 16 @transparentpng.com"
-      ></img>
     </StyledForm>
   );
 };

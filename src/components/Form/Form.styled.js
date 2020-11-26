@@ -97,12 +97,4 @@ export const StyledForm = styled.div`
       font-weight: bolder;
     }
   }
-
-  img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: -80px;
-    left: 80px;
-  }
 `;
