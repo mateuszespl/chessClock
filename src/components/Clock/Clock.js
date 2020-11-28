@@ -7,8 +7,8 @@ export const Clock = ({ players, playtime }) => {
   const { firstPlayer, secondPlayer } = players;
   const [currentGame, setCurrentGame] = useState({
     isFirstPlayerTurn: true,
-    firstPlayerTimeLeft: playtime,
-    secondPlayerTimeLeft: playtime,
+    firstPlayerTimeLeft: { minutes: playtime, seconds: 0 },
+    secondPlayerTimeLeft: { minutes: playtime, seconds: 0 },
     isPaused: false,
   });
 
@@ -35,6 +35,7 @@ export const Clock = ({ players, playtime }) => {
   return (
     <StyledClock>
       <PlayerClock
+        isWhite
         timeLeft={firstPlayerTimeLeft}
         isMyTurn={isFirstPlayerTurn && true}
         player={firstPlayer}

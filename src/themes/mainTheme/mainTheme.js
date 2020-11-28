@@ -14,5 +14,6 @@ export const mainTheme = {
     l: "20px",
     xl: "36px",
     xxl: "54px",
+    clock: "80px",
   },
 };
