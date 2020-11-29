@@ -15,6 +15,7 @@ export const StyledPlayerClock = styled.div`
       font-size: ${({ theme }) => theme.fonts.xl};
       color: ${({ theme, isWhite }) =>
         isWhite ? theme.colors.black : theme.colors.white};
+      backgrond: none;
     }
   }
 
