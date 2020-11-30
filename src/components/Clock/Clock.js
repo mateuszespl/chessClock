@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PlayerClock from "../PlayerClock";
 
+import ClockControls from "../ClockControls";
+import PlayerClock from "../PlayerClock";
 import { StyledClock } from "./Clock.styled";
 
 export const Clock = ({ players, playtime }) => {
@@ -20,9 +21,10 @@ export const Clock = ({ players, playtime }) => {
   } = currentGame;
 
   // const handleTimeChange = () => {
+  //   const { minutes, seconds } = firstPlayerTimeLeft;
   //   setCurrentGame({
   //     ...currentGame,
-  //     firstPlayerTimeLeft: firstPlayerTimeLeft - 1,
+  //     firstPlayerTimeLeft: { ...minutes, seconds: seconds - 1 },
   //   });
   // };
 
@@ -31,7 +33,7 @@ export const Clock = ({ players, playtime }) => {
       // setInterval(handleTimeChange, 1000);
     } else {
     }
-  }, [currentGame.isPaused]);
+  }, [currentGame]);
   return (
     <StyledClock>
       <PlayerClock
@@ -44,6 +46,10 @@ export const Clock = ({ players, playtime }) => {
         timeLeft={secondPlayerTimeLeft}
         isMyTurn={!isFirstPlayerTurn && true}
         player={secondPlayer}
+      />
+      <ClockControls
+        currentGame={currentGame}
+        setCurrentGame={setCurrentGame}
       />
     </StyledClock>
   );
