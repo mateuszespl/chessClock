@@ -1,6 +1,6 @@
 export const mainTheme = {
   colors: {
-    white: "rgba(255, 255, 255, 1)",
+    white: "rgb(255, 248, 232)",
     black: "rgba(0, 0, 0, 1)",
     lightBlack: "rgba(50,50,50,1)",
     darkWhite: "rgba(205, 205, 205, 1)",
