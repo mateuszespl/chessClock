@@ -7,6 +7,7 @@ export const mainTheme = {
     primaryAccent: "black",
     shadow: "rgba(40,40,40,1)",
     accent: "yellow",
+    keyboard: "rgb(255, 255, 255)",
   },
   fonts: {
     s: "12px",
@@ -14,6 +15,6 @@ export const mainTheme = {
     l: "20px",
     xl: "36px",
     xxl: "54px",
-    clock: "80px",
+    clock: "100px",
   },
 };

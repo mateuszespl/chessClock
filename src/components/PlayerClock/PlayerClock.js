@@ -6,14 +6,14 @@ export const PlayerClock = ({ player, isMyTurn, timeLeft, isWhite }) => {
   return (
     <StyledPlayerClock isWhite={isWhite}>
       <header>
-        <h1>{"Player"}</h1>
+        <h1>{player}</h1>
       </header>
       <div>
         <span>
-          {minutes}:{seconds < 10 ? `${seconds}0` : seconds}
+          {minutes < 10 ? `0${minutes}` : minutes}:
+          {seconds < 10 ? `0${seconds}` : seconds}
         </span>
       </div>
-      Moja kolej: {isMyTurn ? "tak" : "nie"}
     </StyledPlayerClock>
   );
 };

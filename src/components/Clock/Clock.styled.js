@@ -11,7 +11,6 @@ export const StyledClock = styled.div`
   border-radius: 35px;
   padding: 30px;
   border: 2px solid black;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-around;
