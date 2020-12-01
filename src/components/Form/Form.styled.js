@@ -58,6 +58,10 @@ export const StyledForm = styled.div`
         font-size: ${({ theme }) => theme.fonts.m};
         background: ${({ theme }) => theme.colors.white};
         color: ${({ theme }) => theme.colors.black};
+
+        &::placeholder {
+          color: ${({ theme }) => theme.colors.darkWhite};
+        }
       }
 
       input[type="range"] {

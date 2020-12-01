@@ -7,7 +7,7 @@ import MainLayout from "./layout/MainLayout";
 export const App = () => {
   const [playtime, setPlaytime] = useState(15);
   const [players, setPlayers] = useState({ firstPlayer: "", secondPlayer: "" });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
   return (
     <MainLayout>
       {isSubmitted ? (

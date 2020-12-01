@@ -20,20 +20,18 @@ export const Clock = ({ players, playtime }) => {
     isFirstPlayerTurn,
   } = currentGame;
 
-  // const handleTimeChange = () => {
-  //   const { minutes, seconds } = firstPlayerTimeLeft;
-  //   setCurrentGame({
-  //     ...currentGame,
-  //     firstPlayerTimeLeft: { ...minutes, seconds: seconds - 1 },
-  //   });
-  // };
-
   useEffect(() => {
-    if (!currentGame.isPaused) {
-      // setInterval(handleTimeChange, 1000);
-    } else {
-    }
-  }, [currentGame]);
+    const handleTimeChange = () => {
+      const { minutes, seconds } = firstPlayerTimeLeft;
+      console.log(seconds);
+      setCurrentGame({
+        ...currentGame,
+        firstPlayerTimeLeft: { ...minutes, seconds: seconds - 1 },
+      });
+    };
+
+    const interval = setInterval(handleTimeChange, 1000);
+  }, [currentGame, firstPlayerTimeLeft, isPaused]);
   return (
     <StyledClock>
       <PlayerClock
