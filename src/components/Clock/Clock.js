@@ -6,7 +6,7 @@ import Indicator from "../Indicator";
 import PlayerClock from "../PlayerClock";
 import { StyledClock } from "./Clock.styled";
 
-export const Clock = ({ players, playtime }) => {
+export const Clock = ({ players, playtime, setIsSubmitted }) => {
   const [currentGame, setCurrentGame] = useState({
     isFirstPlayerTurn: true,
     firstPlayerTimeLeft: { minutes: playtime, seconds: 0 },
@@ -56,7 +56,7 @@ export const Clock = ({ players, playtime }) => {
           },
         });
       }
-    } else console.log("Pauza");
+    }
   };
   useInterval(handleTimeChange, isPaused ? null : 1000);
 
@@ -74,6 +74,7 @@ export const Clock = ({ players, playtime }) => {
         player={secondPlayer}
       />
       <ClockControls
+        setIsSubmitted={setIsSubmitted}
         currentGame={currentGame}
         setCurrentGame={setCurrentGame}
       />

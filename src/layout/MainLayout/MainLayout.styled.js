@@ -7,4 +7,9 @@ export const StyledMainLayout = styled.main`
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.colors.lightBlack};
+
+  ${({ theme }) => theme.media.l} {
+    align-items: flex-start;
+    padding: 20px 0 0 0;
+  }
 `;

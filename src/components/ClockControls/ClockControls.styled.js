@@ -13,7 +13,9 @@ export const StyledClockControls = styled.div`
     align-items: center;
 
     &:nth-of-type(2) {
-      width: 490px;
+      width: 100%;
+      max-width: 490px;
+      margin: 0 10px;
 
       button {
         width: 100%;
@@ -46,5 +48,9 @@ export const StyledClockControls = styled.div`
       margin: 5px 0 0 0;
       color: ${({ theme }) => theme.colors.white};
     }
+  }
+
+  ${({ theme }) => theme.media.l} {
+    bottom: -120px;
   }
 `;

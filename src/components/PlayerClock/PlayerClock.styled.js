@@ -26,4 +26,20 @@ export const StyledPlayerClock = styled.div`
         isWhite ? theme.colors.black : theme.colors.white};
     }
   }
+
+  ${({ theme }) => theme.media.l} {
+    header {
+      margin: 30px 0;
+
+      &.white {
+        order: 2;
+      }
+    }
+
+    div {
+      span {
+        font-size: ${({ theme }) => theme.fonts.clockMediaL};
+      }
+    }
+  }
 `;

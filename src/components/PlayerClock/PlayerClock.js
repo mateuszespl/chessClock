@@ -5,7 +5,7 @@ export const PlayerClock = ({ player, isMyTurn, timeLeft, isWhite }) => {
   const { minutes, seconds } = timeLeft;
   return (
     <StyledPlayerClock isWhite={isWhite}>
-      <header>
+      <header className={isWhite && "white"}>
         <h1>{player}</h1>
       </header>
       <div>

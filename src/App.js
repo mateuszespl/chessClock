@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 
-import Clock from "./components/Clock";
-import Form from "./components/Form";
 import MainLayout from "./layout/MainLayout";
+import { Game } from "./views/Game/Game";
+import { Home } from "./views/Home/Home";
 
 export const App = () => {
   const [playtime, setPlaytime] = useState(15);
@@ -10,10 +11,19 @@ export const App = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   return (
     <MainLayout>
+      {/* Meta */}
+      <Helmet>
+        <title>Chess Clock - try it out!</title>
+      </Helmet>
+      {/* Views */}
       {isSubmitted ? (
-        <Clock playtime={playtime} players={players} />
+        <Game
+          playtime={playtime}
+          players={players}
+          setIsSubmitted={setIsSubmitted}
+        />
       ) : (
-        <Form
+        <Home
           playtime={playtime}
           players={players}
           setPlaytime={setPlaytime}

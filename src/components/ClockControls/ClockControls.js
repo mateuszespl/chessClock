@@ -2,7 +2,11 @@ import React, { useCallback, useEffect } from "react";
 
 import { StyledClockControls } from "./ClockControls.styled";
 
-export const ClockControls = ({ currentGame, setCurrentGame }) => {
+export const ClockControls = ({
+  currentGame,
+  setCurrentGame,
+  setIsSubmitted,
+}) => {
   const { isPaused, isFirstPlayerTurn, isStarted } = currentGame;
 
   const handleKeyPress = useCallback(
@@ -28,13 +32,16 @@ export const ClockControls = ({ currentGame, setCurrentGame }) => {
     [currentGame, isFirstPlayerTurn, isPaused, setCurrentGame, isStarted]
   );
 
+  const handleClick = () => {
+    setIsSubmitted(false);
+  };
+
   useEffect(() => {
     if (!isStarted) {
       window.addEventListener("keypress", handleKeyPress);
     }
     return () => window.removeEventListener("keypress", handleKeyPress);
   }, [handleKeyPress, isStarted]);
-
   return (
     <StyledClockControls>
       <div>
@@ -50,7 +57,7 @@ export const ClockControls = ({ currentGame, setCurrentGame }) => {
         >
           P
         </button>
-        <p>{!isStarted ? "Play" : "Pause"}</p>
+        <p>{!isStarted ? "Play" : isPaused ? "Resume" : "Pause"}</p>
       </div>
       <div>
         <button
@@ -69,7 +76,9 @@ export const ClockControls = ({ currentGame, setCurrentGame }) => {
         <p>End of my turn</p>
       </div>
       <div>
-        <button id="R">R</button>
+        <button onClick={handleClick} id="R">
+          R
+        </button>
         <p>Restart</p>
       </div>
     </StyledClockControls>

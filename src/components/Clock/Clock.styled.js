@@ -14,4 +14,16 @@ export const StyledClock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  ${({ theme }) => theme.media.xl} {
+    width: 95vw;
+  }
+
+  ${({ theme }) => theme.media.l} {
+    height: 75vh;
+    width: 80vw;
+    flex-direction: column;
+    background: ${({ theme }) =>
+      `linear-gradient(to bottom, ${theme.colors.white} 0%, ${theme.colors.white} 50%, ${theme.colors.black} 50%, ${theme.colors.black} 100%)`};
+  }
 `;

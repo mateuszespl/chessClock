@@ -15,6 +15,11 @@ export const mainTheme = {
     l: "20px",
     xl: "36px",
     xxl: "54px",
-    clock: "100px",
+    clock: "110px",
+    clockMediaL: "80px",
+  },
+  media: {
+    xl: "@media(max-width:900px)",
+    l: "@media(max-width:768px)",
   },
 };
