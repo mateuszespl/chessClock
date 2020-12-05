@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Modal } from "./components/Modal/Modal";
 
 import MainLayout from "./layout/MainLayout";
 import { Game } from "./views/Game/Game";
@@ -9,6 +10,7 @@ export const App = () => {
   const [playtime, setPlaytime] = useState(15);
   const [players, setPlayers] = useState({ firstPlayer: "", secondPlayer: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <MainLayout>
       {/* Meta */}
@@ -32,6 +34,7 @@ export const App = () => {
           setIsSubmitted={setIsSubmitted}
         />
       )}
+      {isModalVisible && <Modal />}
     </MainLayout>
   );
 };
