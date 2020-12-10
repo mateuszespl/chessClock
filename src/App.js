@@ -10,7 +10,7 @@ export const App = () => {
   const [playtime, setPlaytime] = useState(15);
   const [players, setPlayers] = useState({ firstPlayer: "", secondPlayer: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(true);
   return (
     <MainLayout>
       {/* Meta */}
@@ -18,7 +18,9 @@ export const App = () => {
         <title>Chess Clock - try it out!</title>
       </Helmet>
       {/* Views */}
-      {isSubmitted ? (
+      {isSubmitted &&
+      players.firstPlayer !== "" &&
+      players.secondPlayer !== "" ? (
         <Game
           playtime={playtime}
           players={players}
@@ -34,7 +36,7 @@ export const App = () => {
           setIsSubmitted={setIsSubmitted}
         />
       )}
-      {isModalVisible && <Modal />}
+      {isModalVisible && <Modal message="Modal" />}
     </MainLayout>
   );
 };

@@ -11,7 +11,6 @@ export const Form = ({
   setIsSubmitted,
 }) => {
   const handleClick = (e) => {
-    e.preventDefault();
     setIsSubmitted(!isSubmitted);
   };
   const handleChange = (e) => {
@@ -41,6 +40,7 @@ export const Form = ({
             placeholder="Białe piony."
             value={firstPlayer}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form__inputWrapper">
@@ -49,6 +49,7 @@ export const Form = ({
             type="text"
             id="second"
             placeholder="Czarne piony."
+            required
             value={secondPlayer}
             onChange={(e) =>
               setPlayers({ firstPlayer, secondPlayer: e.currentTarget.value })
@@ -72,7 +73,9 @@ export const Form = ({
             </h2>
           </div>
         </div>
-        <button onClick={handleClick}>Rozpocznij partię</button>
+        <button type="submit" onClick={handleClick}>
+          Rozpocznij partię
+        </button>
       </form>
       <img
         src="https://image.flaticon.com/icons/png/512/32/32386.png"
