@@ -36,7 +36,9 @@ export const App = () => {
           setIsSubmitted={setIsSubmitted}
         />
       )}
-      {isModalVisible && <Modal message="Modal" />}
+      {isModalVisible && (
+        <Modal setIsModalVisible={setIsModalVisible} message="Modal" />
+      )}
     </MainLayout>
   );
 };
