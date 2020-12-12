@@ -9,9 +9,18 @@ export const Form = ({
   setPlayers,
   isSubmitted,
   setIsSubmitted,
+  setModalSettings,
 }) => {
   const handleClick = (e) => {
-    setIsSubmitted(!isSubmitted);
+    e.preventDefault();
+    const { firstPlayer, secondPlayer } = players;
+    if (firstPlayer && secondPlayer) {
+      setIsSubmitted(!isSubmitted);
+    } else
+      setModalSettings({
+        isVisible: true,
+        message: "You have to choose name for players!",
+      });
   };
   const handleChange = (e) => {
     const { value, id } = e.currentTarget;
@@ -40,7 +49,6 @@ export const Form = ({
             placeholder="Białe piony."
             value={firstPlayer}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="form__inputWrapper">
@@ -49,7 +57,6 @@ export const Form = ({
             type="text"
             id="second"
             placeholder="Czarne piony."
-            required
             value={secondPlayer}
             onChange={(e) =>
               setPlayers({ firstPlayer, secondPlayer: e.currentTarget.value })

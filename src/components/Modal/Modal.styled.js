@@ -14,7 +14,7 @@ export const StyledModal = styled.div`
 
   div {
     width: 400px;
-    height: 200px;
+    height: 150px;
     padding: 16px;
     display: flex;
     flex-direction: column;

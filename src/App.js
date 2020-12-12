@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Modal } from "./components/Modal/Modal";
 
+import Clock from "./components/Clock";
+import Form from "./components/Form";
+import { Modal } from "./components/Modal/Modal";
 import MainLayout from "./layout/MainLayout";
-import { Game } from "./views/Game/Game";
-import { Home } from "./views/Home/Home";
 
 export const App = () => {
   const [playtime, setPlaytime] = useState(15);
   const [players, setPlayers] = useState({ firstPlayer: "", secondPlayer: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [modalSettings, setModalSettings] = useState({
+    isVisible: false,
+    message: "",
+  });
   return (
     <MainLayout>
       {/* Meta */}
@@ -21,13 +24,14 @@ export const App = () => {
       {isSubmitted &&
       players.firstPlayer !== "" &&
       players.secondPlayer !== "" ? (
-        <Game
+        <Clock
           playtime={playtime}
           players={players}
           setIsSubmitted={setIsSubmitted}
         />
       ) : (
-        <Home
+        <Form
+          setModalSettings={setModalSettings}
           playtime={playtime}
           players={players}
           setPlaytime={setPlaytime}
@@ -36,8 +40,11 @@ export const App = () => {
           setIsSubmitted={setIsSubmitted}
         />
       )}
-      {isModalVisible && (
-        <Modal setIsModalVisible={setIsModalVisible} message="Modal" />
+      {modalSettings.isVisible && (
+        <Modal
+          modalSettings={modalSettings}
+          setModalSettings={setModalSettings}
+        />
       )}
     </MainLayout>
   );
