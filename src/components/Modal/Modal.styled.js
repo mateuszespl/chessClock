@@ -26,6 +26,7 @@ export const StyledModal = styled.div`
     p {
       font-size: ${({ theme }) => theme.fonts.l};
       font-weight: bolder;
+      text-align: center;
     }
 
     button {
@@ -40,6 +41,10 @@ export const StyledModal = styled.div`
       font-weight: bolder;
       position: relative;
       overflow: hidden;
+    }
+
+    ${({ theme }) => theme.media.m} {
+      width: 90vw;
     }
   }
 `;

@@ -22,5 +22,6 @@ export const mainTheme = {
   media: {
     xl: "@media(max-width:900px)",
     l: "@media(max-width:768px)",
+    m: "@media(max-width:500px)",
   },
 };

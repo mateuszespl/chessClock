@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledForm = styled.div`
   position: relative;
-  height: 75vh;
+  height: 570px;
   width: 350px;
   border-radius: 40px;
   padding: 30px;
@@ -10,6 +10,7 @@ export const StyledForm = styled.div`
   background: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.darkWhite};
   box-shadow: 0 0 20px -5px ${({ theme }) => theme.colors.shadow};
+  align-self: center;
 
   header {
     h1 {
@@ -126,5 +127,9 @@ export const StyledForm = styled.div`
     top: -10px;
     left: -305px;
     transform: rotate(-30deg);
+
+    ${({ theme }) => theme.media.l} {
+      display: none;
+    }
   }
 `;

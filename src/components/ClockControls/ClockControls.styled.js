@@ -48,9 +48,17 @@ export const StyledClockControls = styled.div`
       margin: 5px 0 0 0;
       color: ${({ theme }) => theme.colors.white};
     }
-  }
 
-  ${({ theme }) => theme.media.l} {
-    bottom: -120px;
+    ${({ theme }) => theme.media.m} {
+      button {
+        width: 50px;
+        height: 50px;
+        font-size: ${({ theme }) => theme.fonts.m};
+      }
+    }
+
+    ${({ theme }) => theme.media.l} {
+      bottom: -120px;
+    }
   }
 `;
