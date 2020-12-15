@@ -26,4 +26,9 @@ export const StyledClock = styled.div`
     background: ${({ theme }) =>
       `linear-gradient(to bottom, ${theme.colors.white} 0%, ${theme.colors.white} 50%, ${theme.colors.black} 50%, ${theme.colors.black} 100%)`};
   }
+
+  ${({ theme }) => theme.media.m} {
+    height: 85vh;
+    width: 95vw;
+  }
 `;

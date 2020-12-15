@@ -42,4 +42,10 @@ export const StyledPlayerClock = styled.div`
       }
     }
   }
+
+  ${({ theme }) => theme.media.m} {
+    header {
+      margin: 35px 0;
+    }
+  }
 `;

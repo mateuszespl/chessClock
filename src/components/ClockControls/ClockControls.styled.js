@@ -61,4 +61,8 @@ export const StyledClockControls = styled.div`
       bottom: -120px;
     }
   }
+
+  ${({ theme }) => theme.media.m} {
+    bottom: -80px;
+  }
 `;
